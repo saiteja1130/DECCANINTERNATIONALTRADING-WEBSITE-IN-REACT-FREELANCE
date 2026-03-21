@@ -1,12 +1,13 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import { useRef } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 const ease = [0.22, 1, 0.36, 1];
 
 export default function Home() {
   const containerRef = useRef(null);
+  const [active, setActive] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
@@ -15,57 +16,127 @@ export default function Home() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  const slides = useMemo(() => ([
+    {
+      eyebrow: "Premium Agro Exports",
+      title: "GLOBAL",
+      accent: "SOURCING.",
+      subtitle: "Delivering uncompromising quality from the heart of India to international markets.",
+      cta: "Inquire",
+      gradient: "linear-gradient(135deg, #000000 0%, #0b0b0b 30%, #151515 55%, #050505 100%)",
+      image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1600&auto=format&fit=crop"
+    },
+    {
+      eyebrow: "Single-Origin Partners",
+      title: "PURE",
+      accent: "ORIGINS.",
+      subtitle: "Direct-from-farm relationships built on traceability, trust, and long-term consistency.",
+      cta: "Our Farms",
+      gradient: "linear-gradient(135deg, #000000 0%, #080808 25%, #1a1a1a 55%, #070707 100%)",
+      image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=1600&auto=format&fit=crop"
+    },
+    {
+      eyebrow: "Logistics Mastery",
+      title: "FREIGHT",
+      accent: "READY.",
+      subtitle: "Precision packaging and on-time shipping engineered for high-volume global demand.",
+      cta: "Ship Now",
+      gradient: "linear-gradient(135deg, #000000 0%, #0d0d0d 35%, #1f1f1f 60%, #090909 100%)",
+      image: "https://images.unsplash.com/photo-1528821128474-27f963b062bf?q=80&w=1600&auto=format&fit=crop"
+    },
+    {
+      eyebrow: "Staple Supply",
+      title: "GRAIN",
+      accent: "SECURE.",
+      subtitle: "High-volume rice and maize exports with strict grading and consistent supply cycles.",
+      cta: "Get Quote",
+      gradient: "linear-gradient(135deg, #000000 0%, #0a0a0a 28%, #191919 58%, #060606 100%)",
+      image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1600&auto=format&fit=crop"
+    }
+  ]), []);
+
+  const handlePrev = () => {
+    setActive((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleNext = () => {
+    setActive((prev) => (prev + 1) % slides.length);
+  };
+
+  const activeSlide = slides[active];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   return (
     <div className="w-full bg-ink" ref={containerRef}>
       {/* Hero Section - Ultra Premium */}
-      <section className="relative h-screen min-h-[800px] flex flex-col justify-end pb-24 overflow-hidden">
+      <section className="relative h-screen min-h-[800px] flex flex-col justify-end pb-16 pt-40 md:pt-56 overflow-hidden">
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-          <motion.img 
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
-            src="https://images.unsplash.com/photo-1606185540834-d6e7483ee1a4?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-            alt="Global Export" 
-            className="w-full h-full object-cover opacity-50"
+          <motion.img
+            key={`image-${active}`}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.85, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            src={activeSlide.image}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/20 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"></div>
+          <motion.div
+            key={active}
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0"
+            style={{ backgroundImage: activeSlide.gradient }}
+          />
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/15 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent"></div>
         </motion.div>
         
         <div className="relative z-10 w-full">
           <div className="px-6 md:px-12 max-w-[1400px] mx-auto w-full">
             <motion.div 
+              key={`eyebrow-${active}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5, ease }}
               className="flex items-center gap-4 mb-8"
             >
               <div className="w-12 h-[1px] bg-gold"></div>
-              <span className="text-gold text-[10px] font-bold tracking-[0.2em] uppercase">Premium Agro Exports</span>
+              <span className="text-gold text-[10px] font-bold tracking-[0.2em] uppercase">{activeSlide.eyebrow}</span>
             </motion.div>
             
             <motion.h1 
+              key={`title-${active}`}
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.2, ease }}
               className="text-[14vw] md:text-[11vw] leading-[0.8] font-light text-white tracking-tighter mb-0"
             >
-              GLOBAL<br />
-              <span className="text-white/60 italic font-serif">SOURCING.</span>
+              {activeSlide.title}<br />
+              <span className="text-white/60 italic font-serif">{activeSlide.accent}</span>
             </motion.h1>
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
               <motion.p 
+                key={`subtitle-${active}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8, ease }}
                 className="text-white/50 text-lg md:text-xl font-light max-w-md leading-relaxed"
               >
-                Delivering uncompromising quality from the heart of India to international markets.
+                {activeSlide.subtitle}
               </motion.p>
               
               <motion.div
+                key={`cta-${active}`}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 1, ease }}
@@ -75,10 +146,42 @@ export default function Home() {
                   className="group relative inline-flex items-center justify-center w-32 h-32 md:w-40 md:h-40 rounded-full border border-white/10 hover:border-gold hover:bg-gold transition-all duration-700 overflow-hidden"
                 >
                   <span className="relative z-10 text-white text-[10px] font-bold tracking-[0.2em] uppercase group-hover:text-ink transition-colors duration-500">
-                    Inquire
+                    {activeSlide.cta}
                   </span>
                 </Link>
               </motion.div>
+            </div>
+
+            <div className="mt-10 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="group inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 transition-colors"
+                aria-label="Previous slide"
+              >
+                <ArrowLeft size={16} />
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Prev</span>
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="group inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 transition-colors"
+                aria-label="Next slide"
+              >
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase">Next</span>
+                <ArrowRight size={16} />
+              </button>
+              <div className="ml-2 flex items-center gap-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={`dot-${i}`}
+                    type="button"
+                    onClick={() => setActive(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className={`h-2 rounded-full transition-all ${i === active ? "w-8 bg-gold" : "w-2 bg-white/30 hover:bg-white/60"}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
@@ -87,7 +190,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2, ease }}
-            className="mt-24 border-y border-white/10 py-4 overflow-hidden flex whitespace-nowrap bg-ink/50 backdrop-blur-sm"
+            className="mt-16 border-y border-white/10 py-4 overflow-hidden flex whitespace-nowrap bg-ink/50 backdrop-blur-sm"
           >
             <div className="animate-marquee flex gap-12 items-center">
               {[...Array(4)].map((_, i) => (
