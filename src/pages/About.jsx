@@ -15,7 +15,7 @@ export default function About() {
             transition={{ duration: 1, ease }}
             className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-[1px] bg-ink/20"></div>
+            <div className="w-12 h-[1px] bg-forest-dark/20"></div>
             <span className="text-ink/40 text-[10px] font-bold tracking-[0.2em] uppercase">About Us</span>
           </motion.div>
           
@@ -53,7 +53,7 @@ export default function About() {
               transition={{ duration: 0.8, ease }}
               className="text-4xl md:text-5xl font-light text-ink mb-10 leading-[1.1] tracking-tighter"
             >
-              Deccan International Trading Company is a premier export house specializing in high-quality agricultural commodities.
+              DECCAN INTERNATIONAL TRADING & CO is a premier export house specializing in high-quality agricultural commodities.
             </motion.h2>
             
             <motion.p 
@@ -90,13 +90,13 @@ export default function About() {
         </div>
 
         {/* Mission & Vision */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-40">
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8, ease }}
-            className="bg-ink text-white p-12 md:p-20 rounded-3xl"
+            className="bg-forest-dark text-white p-12 md:p-20 rounded-3xl"
           >
             <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-gold mb-12">Mission</h3>
             <p className="text-3xl md:text-4xl font-light leading-snug text-white/90 tracking-tighter">
@@ -115,6 +115,77 @@ export default function About() {
             <p className="text-3xl md:text-4xl font-light leading-snug text-ink tracking-tighter">
               To be recognized globally as the most trusted exporter of Indian commodities, known for our unwavering commitment to quality and integrity.
             </p>
+          </motion.div>
+        </div>
+
+        {/* Imports & Certifications */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease }}
+            className="lg:col-span-6"
+          >
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-[1px] bg-forest-dark/20"></div>
+              <span className="text-ink/40 text-[10px] font-bold tracking-[0.2em] uppercase">Global Sourcing</span>
+            </div>
+            <h3 className="text-5xl font-light text-ink mb-12 tracking-tightest">Our <span className="text-gold italic font-serif">Imports.</span></h3>
+            <div className="space-y-8">
+              {[
+                { title: 'Teak Wood', origin: 'Burma, Africa', desc: 'Premium grade timber sourced from sustainable forests across Burma and the African continent.', image: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=1000&auto=format&fit=crop' },
+                { title: 'Cashew', origin: 'Africa', desc: 'High-yield raw cashew nuts imported directly from the finest growing regions in Africa.', image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1000&auto=format&fit=crop' }
+              ].map((item, i) => (
+                <div key={i} className="group p-8 rounded-2xl border border-ink/5 hover:border-gold/20 hover:bg-gold/[0.02] transition-all duration-500 overflow-hidden flex flex-col md:flex-row gap-8 items-center">
+                  <div className="w-full md:w-32 h-32 rounded-xl overflow-hidden bg-stone-100 flex-shrink-0">
+                    <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-start mb-4">
+                      <h4 className="text-2xl font-light text-ink">{item.title}</h4>
+                      <span className="text-[10px] font-bold tracking-widest uppercase text-gold">{item.origin}</span>
+                    </div>
+                    <p className="text-ink/50 font-light leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2, ease }}
+            className="lg:col-span-5 lg:col-start-8"
+          >
+            <div className="flex items-center gap-4 mb-12">
+              <div className="w-12 h-[1px] bg-ink/20"></div>
+              <span className="text-ink/40 text-[10px] font-bold tracking-[0.2em] uppercase">Trust & Compliance</span>
+            </div>
+            <h3 className="text-5xl font-light text-ink mb-12 tracking-tightest">Our <span className="text-forest italic font-serif">Certifications.</span></h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { id: 'IEC', name: 'Import Export Code', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/International_Electrotechnical_Commission_logo.svg/1024px-International_Electrotechnical_Commission_logo.svg.png' },
+                { id: 'FSSAI', name: 'Central License', logo: 'https://www.fssai.gov.in/upload/uploadfiles/files/fssai_logo.png' },
+                { id: 'APEDA', name: 'RCMC Membership', logo: 'https://uxdt.nic.in/wp-content/uploads/2020/06/APEDA.png' },
+                { id: 'GST', name: 'Tax Registration', logo: 'https://icon-library.com/images/gst-icon/gst-icon-5.jpg' }
+              ].map((cert, i) => (
+                <div key={i} className="p-8 rounded-3xl bg-white border border-black/5 flex flex-col justify-between aspect-square group hover:bg-forest-dark transition-all duration-700 hover:shadow-2xl hover:shadow-forest-dark/20 relative overflow-hidden">
+                  <div className="flex justify-between items-start relative z-10">
+                    <span className="text-2xl font-bold text-ink/10 group-hover:text-white/10 transition-colors uppercase">{cert.id}</span>
+                    <div className="w-12 h-12 rounded-xl bg-paper-dark p-2 overflow-hidden flex items-center justify-center group-hover:bg-white/10">
+                      <img src={cert.logo} alt={cert.id} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    </div>
+                  </div>
+                  <div className="relative z-10">
+                    <div className="text-xs font-bold tracking-widest text-gold mb-1 uppercase">{cert.id}</div>
+                    <div className="text-sm font-light text-ink/60 group-hover:text-white/80 transition-colors leading-snug">{cert.name}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
 

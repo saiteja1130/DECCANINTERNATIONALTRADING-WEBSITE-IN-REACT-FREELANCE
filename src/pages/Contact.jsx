@@ -44,7 +44,7 @@ export default function Contact() {
             transition={{ duration: 1, ease }}
             className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-[1px] bg-ink/20"></div>
+            <div className="w-12 h-[1px] bg-forest-dark/20"></div>
             <span className="text-ink/40 text-[10px] font-semibold tracking-[0.2em] uppercase">Contact</span>
           </motion.div>
           
@@ -84,11 +84,11 @@ export default function Contact() {
                     </div>
                     <span className="text-xl font-light text-ink group-hover:text-[#25D366] transition-colors duration-500">+91 7702461962</span>
                   </a>
-                  <a href="mailto:info@deccaninternational.com" className="group flex items-center gap-6">
-                    <div className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center group-hover:border-ink group-hover:bg-ink group-hover:text-white transition-all duration-500">
+                  <a href="mailto:Deccaninternationaltrading@gmail.com" className="group flex items-center gap-6">
+                    <div className="w-12 h-12 rounded-full border border-ink/10 flex items-center justify-center group-hover:border-ink group-hover:bg-forest-dark group-hover:text-white transition-all duration-500">
                       <Mail size={18} strokeWidth={1.5} />
                     </div>
-                    <span className="text-xl font-light text-ink group-hover:text-ink/60 transition-colors duration-500">info@deccaninternational.com</span>
+                    <span className="text-xl font-light text-ink group-hover:text-ink/60 transition-colors duration-500">Deccaninternationaltrading@gmail.com</span>
                   </a>
                 </div>
               </div>
@@ -161,7 +161,6 @@ export default function Contact() {
                     <option value="Sona Masoori Rice">Sona Masoori Rice</option>
                     <option value="Maize">Maize</option>
                     <option value="Onions">Onions</option>
-                    <option value="Turmeric">Turmeric</option>
                     <option value="Pomegranate">Pomegranate</option>
                     <option value="Rice Bran">Rice Bran</option>
                     <option value="Other">Other</option>
@@ -187,7 +186,7 @@ export default function Contact() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full py-6 bg-ink text-white rounded-full font-light tracking-widest uppercase text-sm hover:bg-gold transition-colors duration-500 flex items-center justify-center gap-4"
+                  className="w-full py-6 bg-forest-dark text-white rounded-full font-light tracking-widest uppercase text-sm hover:bg-gold transition-colors duration-500 flex items-center justify-center gap-4"
                 >
                   Send Message <Send size={16} />
                 </motion.button>
@@ -205,7 +204,7 @@ export default function Contact() {
           transition={{ duration: 1, ease }}
           className="mt-32 bg-stone-200 rounded-[2rem] h-[600px] flex items-center justify-center relative overflow-hidden group"
         >
-          <div className="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-1000 z-10" />
+          <div className="absolute inset-0 bg-forest-dark/20 group-hover:bg-transparent transition-colors duration-1000 z-10" />
           <img 
             src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1920&auto=format&fit=crop" 
             alt="Map"
@@ -222,7 +221,7 @@ export default function Contact() {
             <div className="w-16 h-16 bg-gold/10 text-gold rounded-full flex items-center justify-center mx-auto mb-6">
               <MapPin size={24} strokeWidth={1.5} />
             </div>
-            <h3 className="font-light text-ink text-2xl mb-2">Deccan International</h3>
+            <h3 className="font-light text-ink text-2xl mb-2 text-balance">DECCAN INTERNATIONAL TRADING & CO</h3>
             <p className="text-ink/60 text-lg font-light">Hyderabad, Telangana<br/>India</p>
           </motion.div>
         </motion.div>

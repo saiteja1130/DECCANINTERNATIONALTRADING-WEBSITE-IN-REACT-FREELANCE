@@ -24,7 +24,7 @@ export default function Gallery() {
             transition={{ duration: 1, ease }}
             className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-[1px] bg-ink/20"></div>
+            <div className="w-12 h-[1px] bg-forest-dark/20"></div>
             <span className="text-ink/40 text-[10px] font-semibold tracking-[0.2em] uppercase">Portfolio</span>
           </motion.div>
           
@@ -55,7 +55,7 @@ export default function Gallery() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-ink/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
+              <div className="absolute inset-0 bg-forest-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
                 <span className="text-white font-light tracking-wide text-xl px-6 text-center transform translate-y-8 group-hover:translate-y-0 transition-transform duration-700 ease-out">
                   {img.alt}
                 </span>

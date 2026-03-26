@@ -10,7 +10,7 @@ export default function FloatingWhatsApp() {
       aria-label="Chat on WhatsApp"
     >
       <MessageCircle size={24} strokeWidth={1.5} />
-      <span className="absolute right-full mr-6 bg-ink text-white text-xs font-light tracking-widest uppercase py-2 px-4 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap pointer-events-none">
+      <span className="absolute right-full mr-6 bg-forest-dark text-white text-xs font-light tracking-widest uppercase py-2 px-4 rounded-full shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap pointer-events-none">
         Chat with us
       </span>
     </a>

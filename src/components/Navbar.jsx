@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import logoImg from "../assets/image.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -30,7 +31,7 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const isHomePage = location.pathname === "/";
-  const useLightText = !isScrolled && isHomePage;
+  const useLightText = false; // Always use dark text for the brighter theme
 
   const textColor = useLightText ? "text-white" : "text-ink";
   const textMuted = useLightText
@@ -40,7 +41,7 @@ export default function Navbar() {
   const logoBorder = useLightText ? "border-white" : "border-ink";
   const btnHover = useLightText
     ? "hover:bg-white hover:text-ink"
-    : "hover:bg-ink hover:text-white";
+    : "hover:bg-forest hover:text-white";
 
   return (
     <>
@@ -52,22 +53,23 @@ export default function Navbar() {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
           isScrolled
             ? "bg-paper/90 backdrop-blur-xl border-ink/10 py-4 shadow-sm"
-            : "bg-transparent border-transparent py-6 md:py-8"
+            : "bg-transparent border-transparent py-4 md:py-8"
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group">
-            <div
-              className={`w-10 h-10 flex items-center justify-center text-[13px] font-bold tracking-[0.2em] transition-colors duration-500 border ${logoBorder} ${textColor}`}
-            >
-              DT
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 md:w-14 md:h-14 overflow-hidden rounded-full border border-white/10 group-hover:border-white/30 transition-all duration-500 bg-white p-1">
+              <img src={logoImg} alt="DECCAN Logo" className="w-full h-full object-contain" />
             </div>
-            <span
-              className={`font-medium tracking-[0.2em] text-[13px] uppercase transition-colors duration-500 ${textColor}`}
-            >
-              Deccan
-            </span>
+            <div className="flex flex-col">
+              <span className={`font-bold tracking-[0.2em] text-[11px] md:text-[13px] uppercase transition-colors duration-500 ${textColor}`}>
+                Deccan International
+              </span>
+              <span className={`font-light tracking-[0.4em] text-[8px] md:text-[9px] uppercase transition-colors duration-500 opacity-60 ${textColor}`}>
+                Trading & Co.
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Links */}
@@ -156,10 +158,10 @@ export default function Navbar() {
                 +91 7671996989
               </a>
               <a
-                href="mailto:info@deccaninternational.com"
+                href="mailto:Deccaninternationaltrading@gmail.com"
                 className="block text-xl font-light text-ink hover:text-gold transition-colors"
               >
-                info@deccaninternational.com
+                Deccaninternationaltrading@gmail.com
               </a>
             </motion.div>
           </motion.div>

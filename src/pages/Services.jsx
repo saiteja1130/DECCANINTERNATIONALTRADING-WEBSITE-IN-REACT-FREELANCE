@@ -23,7 +23,7 @@ export default function Services() {
             transition={{ duration: 1, ease }}
             className="flex items-center gap-4 mb-12"
           >
-            <div className="w-12 h-[1px] bg-ink/20"></div>
+            <div className="w-12 h-[1px] bg-forest-dark/20"></div>
             <span className="text-ink/40 text-[10px] font-semibold tracking-[0.2em] uppercase">Services</span>
           </motion.div>
           
@@ -53,7 +53,7 @@ export default function Services() {
                 We don't just sell products; we deliver peace of mind. Our comprehensive export services are designed to make international trade seamless and secure.
               </p>
               <div className="aspect-[4/5] rounded-[2rem] overflow-hidden bg-stone-200 relative group">
-                <div className="absolute inset-0 bg-ink/10 group-hover:bg-transparent transition-colors duration-700 z-10" />
+                <div className="absolute inset-0 bg-forest-dark/10 group-hover:bg-transparent transition-colors duration-700 z-10" />
                 <img 
                   src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=800&auto=format&fit=crop" 
                   alt="Logistics" 
@@ -95,7 +95,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease }}
-          className="bg-ink rounded-[2rem] p-12 md:p-24 text-white relative overflow-hidden group"
+          className="bg-forest-dark rounded-[2rem] p-12 md:p-24 text-white relative overflow-hidden group"
         >
           <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-1000">
             <img 

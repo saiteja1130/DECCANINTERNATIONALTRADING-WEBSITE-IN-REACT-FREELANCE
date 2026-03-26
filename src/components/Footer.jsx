@@ -1,18 +1,24 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import logoImg from "../assets/image.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white pt-32 pb-8 px-6 md:px-12 rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2rem] relative z-20 overflow-hidden">
+    <footer className="bg-gradient-to-br from-forest-dark to-forest text-white pt-32 pb-8 px-6 md:px-12 rounded-t-[2.5rem] md:rounded-t-[4rem] mt-[-2rem] relative z-20 overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 mb-32">
           
           {/* Brand */}
           <div className="lg:col-span-5">
-            <h2 className="text-4xl md:text-5xl font-light tracking-tightest mb-8">
-              Deccan<br />
-              <span className="text-gold">International.</span>
-            </h2>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-16 h-16 overflow-hidden rounded-full bg-white p-1.5 shadow-xl">
+                <img src={logoImg} alt="Logo" className="w-full h-full object-contain" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tightest leading-none">
+                DECCAN INTERNATIONAL<br />
+                <span className="text-gold-light text-xl uppercase font-medium tracking-widest">Trading & Co</span>
+              </h2>
+            </div>
             <p className="text-white/50 font-light text-lg max-w-md leading-relaxed">
               Premium agricultural exports. Delivering uncompromising quality from India to the world.
             </p>
@@ -39,8 +45,8 @@ export default function Footer() {
             <ul className="space-y-6">
               <li>
                 <span className="block text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2">Email</span>
-                <a href="mailto:info@deccaninternational.com" className="text-lg font-light text-white/80 hover:text-gold transition-colors">
-                  info@deccaninternational.com
+                <a href="mailto:Deccaninternationaltrading@gmail.com" className="text-lg font-light text-white/80 hover:text-gold transition-colors">
+                  Deccaninternationaltrading@gmail.com
                 </a>
               </li>
               <li>
@@ -65,7 +71,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
           <p className="text-xs font-light text-white/40 tracking-wider">
-            &copy; {new Date().getFullYear()} Deccan International Trading Co.
+            &copy; {new Date().getFullYear()} DECCAN INTERNATIONAL TRADING & CO
           </p>
           <div className="flex gap-8 text-xs font-light text-white/40 tracking-wider">
             <a href="#" className="hover:text-white transition-colors">Privacy</a>

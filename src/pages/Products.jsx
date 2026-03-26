@@ -2,59 +2,58 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
+import ir64Rice from '../assets/products/ir64_rice.png';
+import sonaMasooriRice from '../assets/products/sona_masoori_rice.png';
+import yellowMaize from '../assets/products/yellow_maize.png';
+import freshOnions from '../assets/products/fresh_onions.png';
+import freshPomegranate from '../assets/products/fresh_pomegranate.png';
+
 const products = [
   {
     id: 1,
     name: 'IR 64 Parboiled Rice',
     category: 'Rice',
-    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop',
+    image: ir64Rice,
     description: 'Long-grain non-basmati rice, known for excellent cooking qualities.'
   },
   {
     id: 2,
     name: 'Sona Masoori Rice',
     category: 'Rice',
-    image: 'https://images.unsplash.com/photo-1536304929831-ee1ca9d44906?q=80&w=800&auto=format&fit=crop',
+    image: sonaMasooriRice,
     description: 'Lightweight and aromatic medium-grain rice. Highly popular globally.'
   },
   {
     id: 3,
     name: 'Maize (Corn)',
     category: 'Grains',
-    image: 'https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=800&auto=format&fit=crop',
+    image: yellowMaize,
     description: 'High-quality yellow maize suitable for human consumption and animal feed.'
   },
   {
     id: 4,
     name: 'Fresh Onions',
     category: 'Vegetables',
-    image: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?q=80&w=800&auto=format&fit=crop',
+    image: freshOnions,
     description: 'Export-grade red and pink onions with pungent flavor and long shelf life.'
-  },
-  {
-    id: 5,
-    name: 'Turmeric',
-    category: 'Spices',
-    image: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800&auto=format&fit=crop',
-    description: 'Premium turmeric with high curcumin content. Fingers and powder.'
   },
   {
     id: 6,
     name: 'Fresh Pomegranate',
     category: 'Fruits',
-    image: 'https://images.unsplash.com/photo-1528821128474-27f963b062bf?q=80&w=800&auto=format&fit=crop',
+    image: freshPomegranate,
     description: 'Bhagwa variety pomegranates known for thick red skin and sweet arils.'
   },
   {
     id: 7,
     name: 'Rice Bran',
     category: 'By-products',
-    image: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=800&auto=format&fit=crop',
     description: 'Nutrient-rich rice bran for animal feed and oil extraction.'
   }
 ];
 
-const categories = ['All', 'Rice', 'Spices', 'Fruits', 'Grains', 'Vegetables', 'By-products'];
+const categories = ['All', 'Rice', 'Fruits', 'Grains', 'Vegetables', 'By-products'];
 const ease = [0.22, 1, 0.36, 1];
 
 export default function Products() {
@@ -92,7 +91,7 @@ export default function Products() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-6 py-3 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-500 border ${
                   activeCategory === cat 
-                    ? 'bg-ink text-white border-ink' 
+                    ? 'bg-forest-dark text-white border-ink' 
                     : 'bg-transparent text-ink/50 border-ink/10 hover:border-ink/30 hover:text-ink'
                 }`}
               >
